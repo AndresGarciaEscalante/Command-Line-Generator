@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.awt.event.*;
+//import java.io.BufferedReader;
+import java.io.File;
+import java.util.Scanner;
 import javax.swing.*;
-import java.io.*;
-import java.util.HashSet;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Andres Ricardo
@@ -497,6 +500,7 @@ public class GUI extends javax.swing.JFrame {
 
         P2CB20.setBorder(null);
         P2CB20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        P2CB20.setEnabled(false);
         P2CB20.setPreferredSize(new java.awt.Dimension(69, 19));
         P2CB20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,6 +510,7 @@ public class GUI extends javax.swing.JFrame {
 
         P2CB21.setBorder(null);
         P2CB21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        P2CB21.setEnabled(false);
         P2CB21.setPreferredSize(new java.awt.Dimension(75, 19));
         P2CB21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -543,7 +548,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(P2TFE4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(P2TF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(P2TF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(P2CB2, javax.swing.GroupLayout.Alignment.TRAILING, 0, 287, Short.MAX_VALUE)
+                    .addComponent(P2CB2, javax.swing.GroupLayout.Alignment.TRAILING, 0, 302, Short.MAX_VALUE)
                     .addComponent(P2TF7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(P2TF8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(P2TF10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -635,6 +640,11 @@ public class GUI extends javax.swing.JFrame {
         Open.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Open_1493293.png")); // NOI18N
         Open.setText("Open (Ctrl-O)");
         Open.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpenActionPerformed(evt);
+            }
+        });
         File.add(Open);
 
         Save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -952,6 +962,28 @@ public class GUI extends javax.swing.JFrame {
     private void P2CB23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB23ActionPerformed
         DisplayInformation();
     }//GEN-LAST:event_P2CB23ActionPerformed
+
+    private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open File");
+        FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
+        chooser.setFileFilter(filter);
+        int result = chooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File fileToOpen = chooser.getSelectedFile();
+            try{
+                Scanner x = new Scanner(fileToOpen);
+                while(x.hasNextLine()){
+                    System.out.println(x.nextLine());  
+                }
+                x.close();
+            }
+            catch(Exception e){
+                System.out.println("Problem Openning the File");
+            }
+            
+        }
+    }//GEN-LAST:event_OpenActionPerformed
 
     /**
      * @param args the command line arguments
