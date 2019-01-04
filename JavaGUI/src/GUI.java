@@ -750,6 +750,32 @@ public class GUI extends javax.swing.JFrame {
             P1Label7.setBackground(new java.awt.Color(255, 0, 0));
         }
     }
+ 
+    private void CheckOptionalValues(){
+        /*Check if the Eighth TextField is a Number*/
+        if(!P2TF8.getText().isEmpty()){
+            try{  
+                double d = Double.parseDouble(P2TF8.getText().trim());
+                P1Label8.setBackground(new java.awt.Color(255, 255, 222));
+            }  
+
+            catch(NumberFormatException nfe){  
+                P1Label8.setBackground(new java.awt.Color(255, 0, 0));
+            }
+        }
+        
+        /*Check if the Tenth TextField is a Number*/
+        if(!P2TF10.getText().isEmpty()){
+            try{  
+                double d = Double.parseDouble(P2TF10.getText().trim());
+                P1Label10.setBackground(new java.awt.Color(255, 255, 222));
+            }  
+
+            catch(NumberFormatException nfe){  
+                P1Label10.setBackground(new java.awt.Color(255, 0, 0));
+            }
+        }
+    }
     
     private void P2TF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF1ActionPerformed
         CheckRequiredValues();
@@ -776,11 +802,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_P2TF7ActionPerformed
 
     private void P2TF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF8ActionPerformed
-        // TODO add your handling code here:
+        CheckOptionalValues();
     }//GEN-LAST:event_P2TF8ActionPerformed
 
     private void P2TF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF10ActionPerformed
-        // TODO add your handling code here:
+        CheckOptionalValues();
     }//GEN-LAST:event_P2TF10ActionPerformed
 
     private void P2CB11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB11ActionPerformed
