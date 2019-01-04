@@ -161,7 +161,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="OutpuCommandLine" alignment="0" max="32767" attributes="0"/>
+                  <Component id="OutputCommandLine" alignment="0" max="32767" attributes="0"/>
                   <Component id="jSplitPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -173,7 +173,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="OutpuCommandLine" min="-2" max="-2" attributes="0"/>
+              <Component id="OutputCommandLine" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jSplitPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -184,7 +184,10 @@
   <SubComponents>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JTextField" name="OutpuCommandLine">
+    <Component class="javax.swing.JTextField" name="OutputCommandLine">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Container class="javax.swing.JSplitPane" name="jSplitPane1">
       <Properties>

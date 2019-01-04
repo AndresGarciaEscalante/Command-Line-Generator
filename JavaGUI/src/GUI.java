@@ -6,6 +6,7 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+import java.util.HashSet;
 /**
  *
  * @author Andres Ricardo
@@ -18,6 +19,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         CheckRequiredValues();
+        DisplayInformation();
     }
 
     /**
@@ -30,7 +32,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jSeparator1 = new javax.swing.JSeparator();
-        OutpuCommandLine = new javax.swing.JTextField();
+        OutputCommandLine = new javax.swing.JTextField();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         P1Title = new javax.swing.JLabel();
@@ -95,6 +97,8 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QTSolverCommandLine");
         setPreferredSize(new java.awt.Dimension(670, 770));
+
+        OutputCommandLine.setEditable(false);
 
         jSplitPane1.setDividerLocation(320);
         jSplitPane1.setOneTouchExpandable(true);
@@ -685,7 +689,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OutpuCommandLine)
+                    .addComponent(OutputCommandLine)
                     .addComponent(jSplitPane1))
                 .addContainerGap())
         );
@@ -694,7 +698,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OutpuCommandLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(OutputCommandLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -777,64 +781,160 @@ public class GUI extends javax.swing.JFrame {
         }
     }
     
+    private void DisplayInformation(){
+        String CurrentData = ""; //Store the Current Data of the commandLine
+        
+        /*First part of the CommandLine*/
+        if(!P2CB2.getSelectedItem().toString().isEmpty()){
+            CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString()+" ");
+        }
+        /*Second part of the CommandLine*/
+        if(!P2TF1.getText().isEmpty()){
+            CurrentData = CurrentData.concat(P2TF1.getText()+" ");
+        }
+        
+        /*Third part of the CommandLine*/
+        //Section A
+        CurrentData = CurrentData.concat("T");
+        //Section B
+        if(!P2TF7.getText().isEmpty()){
+            CurrentData = CurrentData.concat(P2TF7.getText());
+        }
+        //Section C
+        CurrentData = CurrentData.concat("x");
+        //Section D
+        if(!P2TF5.getText().isEmpty()){
+            CurrentData = CurrentData.concat(P2TF5.getText());
+        }
+        //Section E
+        if(!P2TF8.getText().isEmpty()){
+            CurrentData = CurrentData.concat("r"+P2TF8.getText());
+        }
+        //Section F
+        if(P2CB13.isSelected()){
+            CurrentData = CurrentData.concat("D");
+        }
+        //Section G
+        if(!P2TF10.getText().isEmpty()){
+            CurrentData = CurrentData.concat("P"+P2TF10.getText());
+        }
+        //Section H
+        if(P2CB11.isSelected()){
+            CurrentData = CurrentData.concat("M");
+        }
+        //Section I
+        if(P2CB23.isSelected()){
+            CurrentData = CurrentData.concat("d");
+        }
+        //Section J
+        if(P2CB19.isSelected()){
+            CurrentData = CurrentData.concat("f");
+        }
+        //Section K
+        CurrentData = CurrentData.concat(" ");
+        
+        /*Fourth part of the CommandLine*/
+        CurrentData = CurrentData.concat("TLM ");
+        
+        /*Fifth part of the CommandLine*/
+        //Section A
+        CurrentData = CurrentData.concat("s");
+        //Section B
+        if(!P2TF3.getText().isEmpty()){
+            CurrentData = CurrentData.concat(P2TF3.getText());
+        }
+        //Section C
+        if(P2CB14.isSelected()){
+            CurrentData = CurrentData.concat("c");
+        }
+        //Section D
+        if(P2CB15.isSelected()){
+            CurrentData = CurrentData.concat("E");
+        }
+        //Section E
+        if(P2CB16.isSelected()){
+            CurrentData = CurrentData.concat("D");
+        }
+        //Section F
+        if(P2CB6.isSelected()){
+            CurrentData = CurrentData.concat("m");
+        }
+        //Section G
+        if(P2CB17.isSelected()){
+            CurrentData = CurrentData.concat("l");
+        }
+        //Section H
+        if(P2CB22.isSelected()){
+            CurrentData = CurrentData.concat("d");
+        }
+        OutputCommandLine.setText(CurrentData);
+    }
+    
     private void P2TF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF1ActionPerformed
         CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF1ActionPerformed
 
     private void P2CB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB2ActionPerformed
         CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2CB2ActionPerformed
 
     private void P2TF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF3ActionPerformed
         CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF3ActionPerformed
 
     private void P2TF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF5ActionPerformed
         CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF5ActionPerformed
 
     private void P2CB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB6ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB6ActionPerformed
 
     private void P2TF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF7ActionPerformed
         CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF7ActionPerformed
 
     private void P2TF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF8ActionPerformed
         CheckOptionalValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF8ActionPerformed
 
     private void P2TF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF10ActionPerformed
         CheckOptionalValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2TF10ActionPerformed
 
     private void P2CB11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB11ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB11ActionPerformed
 
     private void P2CB13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB13ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB13ActionPerformed
 
     private void P2CB14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB14ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB14ActionPerformed
 
     private void P2CB15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB15ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB15ActionPerformed
 
     private void P2CB16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB16ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB16ActionPerformed
 
     private void P2CB17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB17ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB17ActionPerformed
 
     private void P2CB19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB19ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB19ActionPerformed
 
     private void P2CB20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB20ActionPerformed
@@ -846,11 +946,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_P2CB21ActionPerformed
 
     private void P2CB22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB22ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB22ActionPerformed
 
     private void P2CB23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB23ActionPerformed
-        // TODO add your handling code here:
+        DisplayInformation();
     }//GEN-LAST:event_P2CB23ActionPerformed
 
     /**
@@ -895,7 +995,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu File;
     private javax.swing.JMenu ImageMenu;
     private javax.swing.JMenuItem Open;
-    private javax.swing.JTextField OutpuCommandLine;
+    private javax.swing.JTextField OutputCommandLine;
     private javax.swing.JLabel P1Label1;
     private javax.swing.JLabel P1Label10;
     private javax.swing.JLabel P1Label11;
