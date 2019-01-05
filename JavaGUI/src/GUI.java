@@ -21,8 +21,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        CheckRequiredValues();
-        DisplayInformation();
+        //CheckRequiredValues();
+        //DisplayInformation();
     }
 
     /**
@@ -886,8 +886,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_P2TF1ActionPerformed
 
     private void P2CB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB2ActionPerformed
-        CheckRequiredValues();
-        DisplayInformation();
+       CheckRequiredValues();
+       DisplayInformation();
     }//GEN-LAST:event_P2CB2ActionPerformed
 
     private void P2TF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF3ActionPerformed
@@ -973,8 +973,138 @@ public class GUI extends javax.swing.JFrame {
             File fileToOpen = chooser.getSelectedFile();
             try{
                 Scanner x = new Scanner(fileToOpen);
-                while(x.hasNextLine()){
-                    System.out.println(x.nextLine());  
+                /*Row 1 of File*/
+                x.nextLine();
+                /*Row 2 of File*/
+                String Auxi = x.nextLine();
+                /*Row 3 of File*/
+                P2TF1.setText(x.nextLine());                
+                /*Row 4 of File*/
+                P2CB2.setSelectedItem(x.nextLine());
+                OutputCommandLine.setText(Auxi);              
+                /*Row 5 of File*/
+                P2TF3.setText(x.nextLine());                 
+                /*Row 6 of File*/
+                x.nextLine();               
+                /*Row 7 of File*/
+                P2TF5.setText(x.nextLine());               
+                /*Row 8 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB6.setSelected(true);
+                }
+                else{
+                    P2CB6.setSelected(false);
+                }                
+                /*Row 9 of File*/
+                x.nextLine();               
+                 /*Row 10 of File*/
+                P2TF7.setText(x.nextLine());              
+                 /*Row 11 of File*/
+                P2TF8.setText(x.nextLine());               
+                /*Row 12 of File*/
+                x.nextLine();               
+                /*Row 13 of File*/
+                P2TF10.setText(x.nextLine());
+                /*Row 14 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB11.setSelected(true);
+                }
+                else{
+                    P2CB11.setSelected(false);
+                }
+                /*Row 15 of File*/
+                x.nextLine();               
+                /*Row 16 of File*/
+                x.nextLine();                
+                /*Row 17 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB13.setSelected(true);
+                }
+                else{
+                    P2CB13.setSelected(false);
+                }                
+                /*Row 18 of File*/
+                x.nextLine();                
+                /*Row 19 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB14.setSelected(true);
+                }
+                else{
+                    P2CB14.setSelected(false);
+                }               
+                /*Row 20 of File*/
+                x.nextLine();                
+                /*Row 21 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB15.setSelected(true);
+                }
+                else{
+                    P2CB15.setSelected(false);
+                }               
+                /*Row 22 of File*/
+                x.nextLine();               
+                /*Row 23 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB16.setSelected(true);
+                }
+                else{
+                    P2CB16.setSelected(false);
+                }                
+                /*Row 24 of File*/
+                x.nextLine();                
+                /*Row 25 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB17.setSelected(true);
+                }
+                else{
+                    P2CB17.setSelected(false);
+                }               
+                /*Row 26 of File*/
+                x.nextLine();                
+                /*Row 27 of File*/
+                x.nextLine();            
+                /*Row 28 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB19.setSelected(true);
+                }
+                else{
+                    P2CB19.setSelected(false);
+                } 
+                /*Row 29 of File*/
+                x.nextLine();               
+                /*Row 30 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB20.setSelected(true);
+                }
+                else{
+                    P2CB20.setSelected(false);
+                }               
+                /*Row 31 of File*/
+                x.nextLine();     
+                /*Row 32 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB21.setSelected(true);
+                }
+                else{
+                    P2CB21.setSelected(false);
+                }      
+                /*Row 33 of File*/
+                x.nextLine();
+                /*Row 34 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB22.setSelected(true);
+                }
+                else{
+                    P2CB22.setSelected(false);
+                }    
+                /*Row 35 of File*/
+                x.nextLine();           
+                /*Row 36 of File*/
+                if(Double.parseDouble(x.nextLine()) == 2){
+                    P2CB23.setSelected(true);
+                }
+                else{
+                    P2CB23.setSelected(false);
                 }
                 x.close();
             }
