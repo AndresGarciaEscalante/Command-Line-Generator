@@ -751,13 +751,17 @@ public class GUI extends javax.swing.JFrame {
         }
         
         /*Check If the Second TextField is empty*/
-        if(P2CB2.getSelectedItem().toString().isEmpty()){
-            P1Label2.setBackground(new java.awt.Color(255, 0, 0));
+        if(P2CB2.getItemCount() != 0){
+            if(P2CB2.getSelectedItem().toString().isEmpty()){
+                P1Label2.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            else{
+                P1Label2.setBackground(new java.awt.Color(255, 255, 222));
+            }
         }
         else{
-            P1Label2.setBackground(new java.awt.Color(255, 255, 222));
+            P1Label2.setBackground(new java.awt.Color(255, 0, 0));
         }
-        
         /*Check If the Third TextField is a Number*/
         try{  
             double d = Double.parseDouble(P2TF3.getText().trim());
@@ -819,8 +823,10 @@ public class GUI extends javax.swing.JFrame {
         String CurrentData = ""; //Store the Current Data of the commandLine
         
         /*First part of the CommandLine*/
-        if(!P2CB2.getSelectedItem().toString().isEmpty()){
-            CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString());
+        if(P2CB2.getItemCount() != 0){
+            if(!P2CB2.getSelectedItem().toString().isEmpty()){
+                CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString());
+            }
         }
         CurrentData = CurrentData.concat(" ");
         
@@ -1198,7 +1204,12 @@ public class GUI extends javax.swing.JFrame {
                 FileWriter fw = new FileWriter(fileToSave);
                 /*Row 1 of File*/
                 String Auxi = OutputCommandLine.getText();
-                Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
+                if(P2CB2.getItemCount() != 0){
+                    Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
+                }
+                else{
+                    Auxi = Auxi.replaceFirst(" ","");
+                }
                 fw.write(Auxi);
                 fw.write(System.getProperty( "line.separator" ));
                 /*Row 2 of File*/
@@ -1208,7 +1219,9 @@ public class GUI extends javax.swing.JFrame {
                 fw.write(P2TF1.getText());
                 fw.write(System.getProperty( "line.separator" ));
                 /*Row 4 of File*/
-                fw.write(P2CB2.getSelectedItem().toString());    
+                if(P2CB2.getItemCount() != 0){
+                    fw.write(P2CB2.getSelectedItem().toString());    
+                }
                 fw.write(System.getProperty( "line.separator" ));
                 /*Row 5 of File*/
                 fw.write(P2TF3.getText());                  
@@ -1363,22 +1376,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveAsActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        System.out.println(P2CB2.getItemCount());
-        System.out.println(P2CB2.getItemAt(0));
-        System.out.println(P2CB2.getItemAt(1));
-        System.out.println(P2CB2.getItemAt(2));
-        P2CB2.addItem("xd");
-        System.out.println(P2CB2.getItemCount());
-        System.out.println(P2CB2.getItemAt(3));
-        
-        list.add("xd");
-        System.out.println(list.size());
         
     }//GEN-LAST:event_SaveActionPerformed
 
     private void ClearLaunchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearLaunchesActionPerformed
         P2CB2.removeAllItems();
-        
     }//GEN-LAST:event_ClearLaunchesActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
