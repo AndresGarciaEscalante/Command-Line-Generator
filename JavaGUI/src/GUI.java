@@ -5,6 +5,8 @@
  */
 //import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -21,8 +23,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        //CheckRequiredValues();
-        //DisplayInformation();
+        CheckRequiredValues();
+        DisplayInformation();
     }
 
     /**
@@ -656,6 +658,11 @@ public class GUI extends javax.swing.JFrame {
         SaveAs.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Download_1031520.png")); // NOI18N
         SaveAs.setText("SaveAs");
         SaveAs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveAs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveAsActionPerformed(evt);
+            }
+        });
         File.add(SaveAs);
 
         ClearHistory.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_circle-backup-time-history-recent-time-machine-outline-stroke_763474.png")); // NOI18N
@@ -796,12 +803,15 @@ public class GUI extends javax.swing.JFrame {
         
         /*First part of the CommandLine*/
         if(!P2CB2.getSelectedItem().toString().isEmpty()){
-            CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString()+" ");
+            CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString());
         }
+        CurrentData = CurrentData.concat(" ");
+        
         /*Second part of the CommandLine*/
         if(!P2TF1.getText().isEmpty()){
-            CurrentData = CurrentData.concat(P2TF1.getText()+" ");
+            CurrentData = CurrentData.concat(P2TF1.getText());
         }
+        CurrentData = CurrentData.concat(" ");
         
         /*Third part of the CommandLine*/
         //Section A
@@ -1114,6 +1124,180 @@ public class GUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_OpenActionPerformed
+
+    private void SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveAsActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open File");
+        FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
+        chooser.setFileFilter(filter);
+        int result = chooser.showSaveDialog(null);
+        File fileToSave = chooser.getSelectedFile();
+        try{
+            FileWriter fw = new FileWriter(fileToSave);
+            /*Row 1 of File*/
+            String Auxi = OutputCommandLine.getText();
+            Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
+            fw.write(Auxi);
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 2 of File*/
+            fw.write(OutputCommandLine.getText());
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 3 of File*/
+            fw.write(P2TF1.getText());
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 4 of File*/
+            fw.write(P2CB2.getSelectedItem().toString());    
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 5 of File*/
+            fw.write(P2TF3.getText());                  
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 6 of File*/            
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 7 of File*/
+            fw.write(P2TF5.getText());               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 8 of File*/
+            if(P2CB6.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 9 of File*/                
+            fw.write(System.getProperty( "line.separator" ));
+             /*Row 10 of File*/
+            fw.write(P2TF7.getText());              
+            fw.write(System.getProperty( "line.separator" ));
+             /*Row 11 of File*/
+            fw.write(P2TF8.getText());               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 12 of File*/               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 13 of File*/
+            fw.write(P2TF10.getText());
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 14 of File*/
+            if(P2CB11.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 15 of File*/                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 16 of File*/              
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 17 of File*/
+            if(P2CB13.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 18 of File*/                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 19 of File*/
+            if(P2CB14.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 20 of File*/              
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 21 of File*/
+            if(P2CB15.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 22 of File*/               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 23 of File*/
+            if(P2CB16.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 24 of File*/                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 25 of File*/
+            if(P2CB17.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }               
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 26 of File*/              
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 27 of File*/            
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 28 of File*/
+            if(P2CB19.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 29 of File*/                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 30 of File*/
+            if(P2CB20.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 31 of File*/     
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 32 of File*/
+            if(P2CB21.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }      
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 33 of File*/ 
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 34 of File*/
+            if(P2CB22.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }     
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 35 of File*/           
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 36 of File*/
+            if(P2CB23.isSelected()){
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 37 of File*/
+            fw.write(System.getProperty( "line.separator" ));
+            /*Row 38 of File*/ 
+            fw.close();
+        }
+        catch(IOException e){
+            System.out.println("Problem to Save the file");
+        }
+    }//GEN-LAST:event_SaveAsActionPerformed
 
     /**
      * @param args the command line arguments
