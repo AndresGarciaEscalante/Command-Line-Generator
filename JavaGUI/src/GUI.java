@@ -358,14 +358,6 @@ public class GUI extends javax.swing.JFrame {
                 P2CB2ActionPerformed(evt);
             }
         });
-        P2CB2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                P2CB2KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                P2CB2KeyTyped(evt);
-            }
-        });
 
         P2TF3.setBackground(new java.awt.Color(255, 255, 222));
         P2TF3.setAlignmentX(0.0F);
@@ -688,6 +680,11 @@ public class GUI extends javax.swing.JFrame {
         ClearHistory.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_circle-backup-time-history-recent-time-machine-outline-stroke_763474.png")); // NOI18N
         ClearHistory.setText("Clear History");
         ClearHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearHistoryActionPerformed(evt);
+            }
+        });
         File.add(ClearHistory);
 
         jMenuBar1.add(File);
@@ -949,12 +946,12 @@ public class GUI extends javax.swing.JFrame {
             FileWriter fw = new FileWriter(fileToSave);
             /*Number of Items*/
             fw.write(Integer.toString(P2CB2.getItemCount()));
-            fw.write(System.getProperty( "line.separator" ));
             for(int i =0;i < P2CB2.getItemCount();i++){
-                fw.write(P2CB2.getItemAt(i));
                 fw.write(System.getProperty( "line.separator" ));
+                fw.write(P2CB2.getItemAt(i));
             }
             for(int i = 0;i < list.size();i++){
+                fw.write(System.getProperty( "line.separator"));
                 fw.write(list.get(i));
             }
             fw.close();
@@ -1208,6 +1205,19 @@ public class GUI extends javax.swing.JFrame {
                     P2CB23.setSelected(false);
                 }
                 x.close();
+                
+                //Adding to the list
+                boolean Signal = false;
+                CurrentFile = fileToOpen.toString();
+                setTitle(CurrentFile);
+                for(int i =0;i < list.size();i++){
+                    if(CurrentFile.equals(list.get(i))){
+                        Signal = true;
+                    }
+                }
+                if(Signal == false){
+                    list.add(fileToOpen.toString());
+                }
             }
             catch(Exception e){
                 System.out.println("Problem Openning the File");
@@ -1392,6 +1402,19 @@ public class GUI extends javax.swing.JFrame {
                 fw.write(System.getProperty( "line.separator" ));
                 /*Row 38 of File*/ 
                 fw.close();
+                
+                //Adding to the list
+                boolean Signal = false;
+                CurrentFile = fileToSave.toString();
+                setTitle(CurrentFile);
+                for(int i =0;i < list.size();i++){
+                    if(CurrentFile.equals(list.get(i))){
+                        Signal = true;
+                    }
+                }
+                if(Signal == false){
+                    list.add(fileToSave.toString());
+                }
             }
             catch(IOException e){
                 System.out.println("Problem to Save the file");
@@ -1400,7 +1423,197 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveAsActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        
+        if(CurrentFile.equals(" ")){
+            System.out.println("No me inicialzaron");
+        }
+        else{
+            File fileToSave = new File(CurrentFile);
+            try{
+                FileWriter fw = new FileWriter(fileToSave);
+                /*Row 1 of File*/
+                String Auxi = OutputCommandLine.getText();
+                if(P2CB2.getItemCount() != 0){
+                    Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
+                }
+                else{
+                    Auxi = Auxi.replaceFirst(" ","");
+                }
+                fw.write(Auxi);
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 2 of File*/
+                fw.write(OutputCommandLine.getText());
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 3 of File*/
+                fw.write(P2TF1.getText());
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 4 of File*/
+                if(P2CB2.getItemCount() != 0){
+                    fw.write(P2CB2.getSelectedItem().toString());    
+                }
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 5 of File*/
+                fw.write(P2TF3.getText());                  
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 6 of File*/            
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 7 of File*/
+                fw.write(P2TF5.getText());               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 8 of File*/
+                if(P2CB6.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                } 
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 9 of File*/                
+                fw.write(System.getProperty( "line.separator" ));
+                 /*Row 10 of File*/
+                fw.write(P2TF7.getText());              
+                fw.write(System.getProperty( "line.separator" ));
+                 /*Row 11 of File*/
+                fw.write(P2TF8.getText());               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 12 of File*/               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 13 of File*/
+                fw.write(P2TF10.getText());
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 14 of File*/
+                if(P2CB11.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                } 
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 15 of File*/                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 16 of File*/              
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 17 of File*/
+                if(P2CB13.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 18 of File*/                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 19 of File*/
+                if(P2CB14.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                } 
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 20 of File*/              
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 21 of File*/
+                if(P2CB15.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 22 of File*/               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 23 of File*/
+                if(P2CB16.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 24 of File*/                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 25 of File*/
+                if(P2CB17.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }               
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 26 of File*/              
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 27 of File*/            
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 28 of File*/
+                if(P2CB19.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                } 
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 29 of File*/                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 30 of File*/
+                if(P2CB20.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }                
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 31 of File*/     
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 32 of File*/
+                if(P2CB21.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }      
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 33 of File*/ 
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 34 of File*/
+                if(P2CB22.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }     
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 35 of File*/           
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 36 of File*/
+                if(P2CB23.isSelected()){
+                    fw.write("2");
+                }
+                else {
+                    fw.write("0");
+                }
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 37 of File*/
+                fw.write(System.getProperty( "line.separator" ));
+                /*Row 38 of File*/ 
+                fw.close();
+                
+                //Adding to the list
+                boolean Signal = false;
+                CurrentFile = fileToSave.toString();
+                setTitle(CurrentFile);
+                for(int i =0;i < list.size();i++){
+                    if(CurrentFile.equals(list.get(i))){
+                        Signal = true;
+                    }
+                }
+                if(Signal == false){
+                    list.add(fileToSave.toString());
+                }
+            }
+            catch(IOException e){
+                System.out.println("Problem to Save the file");
+            }
+        }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void ClearLaunchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearLaunchesActionPerformed
@@ -1417,13 +1630,9 @@ public class GUI extends javax.swing.JFrame {
         DisplayInformation();
     }//GEN-LAST:event_formWindowOpened
 
-    private void P2CB2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_P2CB2KeyTyped
-        System.out.println("Typed");
-    }//GEN-LAST:event_P2CB2KeyTyped
-
-    private void P2CB2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_P2CB2KeyPressed
-        System.out.println("Pressed");
-    }//GEN-LAST:event_P2CB2KeyPressed
+    private void ClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearHistoryActionPerformed
+        list.removeAll(list);
+    }//GEN-LAST:event_ClearHistoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1461,6 +1670,7 @@ public class GUI extends javax.swing.JFrame {
     }
     // Extra Variables
     ArrayList<String> list=new ArrayList<String>();
+    String CurrentFile = " ";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ClearHistory;
     private javax.swing.JMenuItem ClearLaunches;
