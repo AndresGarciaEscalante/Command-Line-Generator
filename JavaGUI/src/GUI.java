@@ -1060,7 +1060,9 @@ public class GUI extends javax.swing.JFrame {
     private void P2CB23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB23ActionPerformed
         DisplayInformation();
     }//GEN-LAST:event_P2CB23ActionPerformed
-
+                 
+    
+    
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Open File");
@@ -1218,13 +1220,188 @@ public class GUI extends javax.swing.JFrame {
                 if(Signal == false){
                     list.add(fileToOpen.toString());
                 }
+                
+                //Desde aca es nuevo
+                javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
+                newMenuItem.setText(CurrentFile);
+                newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                File.add(newMenuItem);
+                newMenuItem.addActionListener(new java.awt.event.ActionListener(){
+                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        newMenuItemActionPerformed(evt);
+                    }
+                });
+                
+                
+                //jMenuBar1.add(File);
+                System.out.println(File.getItemCount());  
+               // File.remove(4);
+                //System.out.println(File.getItemCount()); 
+                
+                for(int i = 0;i < File.getItemCount();i++){
+                    System.out.println(File.getItem(i).getText());
+                }
             }
             catch(Exception e){
-                System.out.println("Problem Openning the File");
-            }
-            
+                System.out.println("Problem Openning the File Open");
+            }   
         }
     }//GEN-LAST:event_OpenActionPerformed
+private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    CurrentFile = evt.getActionCommand();
+     
+    try{
+        File fileToOpen = new File(CurrentFile);
+        Scanner x = new Scanner(fileToOpen);
+        /*Row 1 of File*/
+        x.nextLine();
+        /*Row 2 of File*/
+        String Auxi = x.nextLine();
+        /*Row 3 of File*/
+        P2TF1.setText(x.nextLine());                
+        /*Row 4 of File*/
+        P2CB2.setSelectedItem(x.nextLine());
+        OutputCommandLine.setText(Auxi);              
+        /*Row 5 of File*/
+        P2TF3.setText(x.nextLine());                 
+        /*Row 6 of File*/
+        x.nextLine();               
+        /*Row 7 of File*/
+        P2TF5.setText(x.nextLine());               
+        /*Row 8 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB6.setSelected(true);
+        }
+        else{
+            P2CB6.setSelected(false);
+        }                
+        /*Row 9 of File*/
+        x.nextLine();               
+         /*Row 10 of File*/
+        P2TF7.setText(x.nextLine());              
+         /*Row 11 of File*/
+        P2TF8.setText(x.nextLine());               
+        /*Row 12 of File*/
+        x.nextLine();               
+        /*Row 13 of File*/
+        P2TF10.setText(x.nextLine());
+        /*Row 14 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB11.setSelected(true);
+        }
+        else{
+            P2CB11.setSelected(false);
+        }
+        /*Row 15 of File*/
+        x.nextLine();               
+        /*Row 16 of File*/
+        x.nextLine();                
+        /*Row 17 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB13.setSelected(true);
+        }
+        else{
+            P2CB13.setSelected(false);
+        }                
+        /*Row 18 of File*/
+        x.nextLine();                
+        /*Row 19 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB14.setSelected(true);
+        }
+        else{
+            P2CB14.setSelected(false);
+        }               
+        /*Row 20 of File*/
+        x.nextLine();                
+        /*Row 21 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB15.setSelected(true);
+        }
+        else{
+            P2CB15.setSelected(false);
+        }               
+        /*Row 22 of File*/
+        x.nextLine();               
+        /*Row 23 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB16.setSelected(true);
+        }
+        else{
+            P2CB16.setSelected(false);
+        }                
+        /*Row 24 of File*/
+        x.nextLine();                
+        /*Row 25 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB17.setSelected(true);
+        }
+        else{
+            P2CB17.setSelected(false);
+        }               
+        /*Row 26 of File*/
+        x.nextLine();                
+        /*Row 27 of File*/
+        x.nextLine();            
+        /*Row 28 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB19.setSelected(true);
+        }
+        else{
+            P2CB19.setSelected(false);
+        } 
+        /*Row 29 of File*/
+        x.nextLine();               
+        /*Row 30 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB20.setSelected(true);
+        }
+        else{
+            P2CB20.setSelected(false);
+        }               
+        /*Row 31 of File*/
+        x.nextLine();     
+        /*Row 32 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB21.setSelected(true);
+        }
+        else{
+            P2CB21.setSelected(false);
+        }      
+        /*Row 33 of File*/
+        x.nextLine();
+        /*Row 34 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB22.setSelected(true);
+        }
+        else{
+            P2CB22.setSelected(false);
+        }    
+        /*Row 35 of File*/
+        x.nextLine();           
+        /*Row 36 of File*/
+        if(Double.parseDouble(x.nextLine()) == 2){
+            P2CB23.setSelected(true);
+        }
+        else{
+            P2CB23.setSelected(false);
+        }
+        x.close();
+
+        //jMenuBar1.add(File);
+        System.out.println(File.getItemCount());  
+       // File.remove(4);
+        //System.out.println(File.getItemCount()); 
+
+        for(int i = 0;i < File.getItemCount();i++){
+            System.out.println(File.getItem(i).getText());
+        }
+    }
+    catch(Exception e){
+        System.out.println("Problem Openning the File Menu");
+    } 
+    System.out.println(evt.getActionCommand());
+}
 
     private void SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveAsActionPerformed
         JFileChooser chooser = new JFileChooser();
