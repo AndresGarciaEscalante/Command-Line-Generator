@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Formatter;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Andres Ricardo
+ * @author Andres Ricardo Garcia Escalante
  */
 public class GUI extends javax.swing.JFrame {
 
@@ -746,230 +745,254 @@ public class GUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    /*CheckRequiredValues() 
+      This function updates the states of the necessary data to execute the simulation without problems.
+      Checking if all the spaces are fill up with the right values (Strings or Numbers).
+      If Yes: The Label of the corresponding Field will become Yellow (Data Ok)
+      If No:  The Label of the corresponging Field will become Red (Wrong Data)*/
     private void CheckRequiredValues(){
         /*Check If the First TextField is empty*/
         if(P2TF1.getText().isEmpty()){
-            P1Label1.setBackground(new java.awt.Color(255, 0, 0));
+            P1Label1.setBackground(new java.awt.Color(255, 0, 0));    //Change Backgrounds color to Red
         }
         else{
-            P1Label1.setBackground(new java.awt.Color(255, 255, 222));
+            P1Label1.setBackground(new java.awt.Color(255, 255, 222));//Change Backgrounds color to Yelow
         }
         
         /*Check If the Second TextField is empty*/
-        if(P2CB2.getItemCount() != 0){
-            if(P2CB2.getSelectedItem().toString().isEmpty()){
-                P1Label2.setBackground(new java.awt.Color(255, 0, 0));
+        if(P2CB2.getItemCount() != 0){ //If there are at least 1 item seleceted
+            if(P2CB2.getSelectedItem().toString().isEmpty()){ 
+                P1Label2.setBackground(new java.awt.Color(255, 0, 0));//Change Backgrounds color to Red
             }
             else{
-                P1Label2.setBackground(new java.awt.Color(255, 255, 222));
+                P1Label2.setBackground(new java.awt.Color(255, 255, 222));//Change Backgrounds color to Yelow
             }
         }
         else{
-            P1Label2.setBackground(new java.awt.Color(255, 0, 0));
+            P1Label2.setBackground(new java.awt.Color(255, 0, 0)); //Change Backgrounds color to Yelow
         }
+        
         /*Check If the Third TextField is a Number*/
-        try{  
-            double d = Double.parseDouble(P2TF3.getText().trim());
-            P1Label3.setBackground(new java.awt.Color(255, 255, 222));
+        try{ 
+            double d = Double.parseDouble(P2TF3.getText().trim()); //Convert String to Number
+            P1Label3.setBackground(new java.awt.Color(255, 255, 222));//Change Backgrounds color to Yelow
         }  
         
         catch(NumberFormatException nfe){  
-            P1Label3.setBackground(new java.awt.Color(255, 0, 0));
+            P1Label3.setBackground(new java.awt.Color(255, 0, 0));//Change Backgrounds color to Red
         }
         
         /*Check if the Fifth TextField is a Number*/
         try{  
-            double d = Double.parseDouble(P2TF5.getText().trim());
-            P1Label5.setBackground(new java.awt.Color(255, 255, 222));
+            double d = Double.parseDouble(P2TF5.getText().trim()); //Convert String to Number
+            P1Label5.setBackground(new java.awt.Color(255, 255, 222)); //Change Backgrounds color to Yelow
         }  
         
         catch(NumberFormatException nfe){  
-            P1Label5.setBackground(new java.awt.Color(255, 0, 0));
+            P1Label5.setBackground(new java.awt.Color(255, 0, 0)); //Change Backgrounds color to Red
         }
         
         /*Check if the Seventh TextField is a Number*/
         try{  
-            double d = Double.parseDouble(P2TF7.getText().trim());
-            P1Label7.setBackground(new java.awt.Color(255, 255, 222));
+            double d = Double.parseDouble(P2TF7.getText().trim()); //Convert String to Number
+            P1Label7.setBackground(new java.awt.Color(255, 255, 222)); //Change Backgrounds color to Yelow
         }  
         
         catch(NumberFormatException nfe){  
-            P1Label7.setBackground(new java.awt.Color(255, 0, 0));
+            P1Label7.setBackground(new java.awt.Color(255, 0, 0)); //Change Backgrounds color to Red
         }
     }
- 
+    
+    /*CheckOptionalValues() 
+      This function updates the states of the optional data. The simulation can be executed without them.
+      Checking if all the spaces are fill up with the right values (Strings or Numbers).
+      If Yes: The Label of the corresponding Field will become Yellow (Data Ok)
+      If No:  The Label of the corresponging Field will become Red (Wrong Data)*/
     private void CheckOptionalValues(){
         /*Check if the Eighth TextField is a Number*/
         if(!P2TF8.getText().isEmpty()){
             try{  
-                double d = Double.parseDouble(P2TF8.getText().trim());
-                P1Label8.setBackground(new java.awt.Color(255, 255, 222));
+                double d = Double.parseDouble(P2TF8.getText().trim()); //Convert to Number
+                P1Label8.setBackground(new java.awt.Color(255, 255, 222));//Change color to Yellow
             }  
 
             catch(NumberFormatException nfe){  
-                P1Label8.setBackground(new java.awt.Color(255, 0, 0));
+                P1Label8.setBackground(new java.awt.Color(255, 0, 0));//Change color to Red
             }
         }
         
         /*Check if the Tenth TextField is a Number*/
         if(!P2TF10.getText().isEmpty()){
             try{  
-                double d = Double.parseDouble(P2TF10.getText().trim());
-                P1Label10.setBackground(new java.awt.Color(255, 255, 222));
+                double d = Double.parseDouble(P2TF10.getText().trim()); //Convert to Number
+                P1Label10.setBackground(new java.awt.Color(255, 255, 222));//Change color to Yellow
             }  
 
             catch(NumberFormatException nfe){  
-                P1Label10.setBackground(new java.awt.Color(255, 0, 0));
+                P1Label10.setBackground(new java.awt.Color(255, 0, 0));//Change color to Red
             }
         }
     }
     
+    /*DisplayInformation() 
+      This function display the status of all the variables stored in the Frame.
+      This information appears at the CommandLineOutput in a specific notation.
+      The Basic Structure of the command Line is divided into 5 parts and each of 
+      them contains sections*/
     private void DisplayInformation(){
-        String CurrentData = ""; //Store the Current Data of the commandLine
-        
+        String CurrentData = ""; //Store all Current Data of the CommandLine
         /*First part of the CommandLine*/
         if(P2CB2.getItemCount() != 0){
             if(!P2CB2.getSelectedItem().toString().isEmpty()){
-                CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString());
+                CurrentData = CurrentData.concat(P2CB2.getSelectedItem().toString()); //Add the content of the First Part to the CurrentData String
             }
         }
-        CurrentData = CurrentData.concat(" ");
-        
+        CurrentData = CurrentData.concat(" "); //Add an empty space to the CurrentData String
         /*Second part of the CommandLine*/
         if(!P2TF1.getText().isEmpty()){
-            CurrentData = CurrentData.concat(P2TF1.getText());
+            CurrentData = CurrentData.concat(P2TF1.getText()); //Add the content of the Second Part to the CurrentData String
         }
-        CurrentData = CurrentData.concat(" ");
-        
+        CurrentData = CurrentData.concat(" ");//Add an empty space to the CurrentData String
         /*Third part of the CommandLine*/
         //Section A
-        CurrentData = CurrentData.concat("T");
+        CurrentData = CurrentData.concat("T"); //Add a "T" to the Third Part to the CurrentData String
         //Section B
         if(!P2TF7.getText().isEmpty()){
-            CurrentData = CurrentData.concat(P2TF7.getText());
+            CurrentData = CurrentData.concat(P2TF7.getText()); //Add the content to the Third Part to the Current String
         }
         //Section C
-        CurrentData = CurrentData.concat("x");
+        CurrentData = CurrentData.concat("x"); //Add a "x" to the Third Part to the CurrentData String
         //Section D
         if(!P2TF5.getText().isEmpty()){
-            CurrentData = CurrentData.concat(P2TF5.getText());
+            CurrentData = CurrentData.concat(P2TF5.getText());//Add the content to the Third Part to the Current String
         }
         //Section E
         if(!P2TF8.getText().isEmpty()){
-            CurrentData = CurrentData.concat("r"+P2TF8.getText());
+            CurrentData = CurrentData.concat("r"+P2TF8.getText());//Add the content to the Third Part to the Current String
         }
         //Section F
         if(P2CB13.isSelected()){
-            CurrentData = CurrentData.concat("D");
+            CurrentData = CurrentData.concat("D"); //Add a "D" to the Third Part to the CurrentData String
         }
         //Section G
         if(!P2TF10.getText().isEmpty()){
-            CurrentData = CurrentData.concat("P"+P2TF10.getText());
+            CurrentData = CurrentData.concat("P"+P2TF10.getText());//Add the content to the Third Part to the Current String
         }
         //Section H
         if(P2CB11.isSelected()){
-            CurrentData = CurrentData.concat("M");
+            CurrentData = CurrentData.concat("M"); //Add a "M" to the Third Part to the CurrentData String
         }
         //Section I
         if(P2CB23.isSelected()){
-            CurrentData = CurrentData.concat("d");
+            CurrentData = CurrentData.concat("d"); //Add a "d" to the Third Part to the CurrentData String
         }
         //Section J
         if(P2CB19.isSelected()){
-            CurrentData = CurrentData.concat("f");
+            CurrentData = CurrentData.concat("f"); //Add a "f" to the Third Part to the CurrentData String
         }
         //Section K
-        CurrentData = CurrentData.concat(" ");
+        CurrentData = CurrentData.concat(" "); //Add and empty space to the CurrentData String
         
         /*Fourth part of the CommandLine*/
-        CurrentData = CurrentData.concat("TLM ");
+        CurrentData = CurrentData.concat("TLM "); //Add a "TLM " to the fourth Part to the CurrentData String
         
         /*Fifth part of the CommandLine*/
         //Section A
-        CurrentData = CurrentData.concat("s");
+        CurrentData = CurrentData.concat("s"); //Add a "s" to the Fifth Part to the CurrentData String
         //Section B
         if(!P2TF3.getText().isEmpty()){
-            CurrentData = CurrentData.concat(P2TF3.getText());
+            CurrentData = CurrentData.concat(P2TF3.getText());//Add the content to the Fifth Part to the Current String
         }
         //Section C
         if(P2CB14.isSelected()){
-            CurrentData = CurrentData.concat("c");
+            CurrentData = CurrentData.concat("c");//Add a "c" to the Fifth Part to the CurrentData String
         }
         //Section D
         if(P2CB15.isSelected()){
-            CurrentData = CurrentData.concat("E");
+            CurrentData = CurrentData.concat("E");//Add a "E" to the Fifth Part to the CurrentData String
         }
         //Section E
         if(P2CB16.isSelected()){
-            CurrentData = CurrentData.concat("D");
+            CurrentData = CurrentData.concat("D");//Add a "D" to the Fifth Part to the CurrentData String
         }
         //Section F
         if(P2CB6.isSelected()){
-            CurrentData = CurrentData.concat("m");
+            CurrentData = CurrentData.concat("m");//Add a "m" to the Fifth Part to the CurrentData String
         }
         //Section G
         if(P2CB17.isSelected()){
-            CurrentData = CurrentData.concat("l");
+            CurrentData = CurrentData.concat("l");//Add a "l" to the Fifth Part to the CurrentData String
         }
         //Section H
         if(P2CB22.isSelected()){
-            CurrentData = CurrentData.concat("d");
+            CurrentData = CurrentData.concat("d");//Add a "d" to the Fifth Part to the CurrentData String
         }
-        OutputCommandLine.setText(CurrentData);
+        OutputCommandLine.setText(CurrentData) ;//Add all the information from the CurrentData to the OutputCommandLine.
     }
-    
+   
+    /*OpenUTLMFile() 
+      Function responsible to update the data of the ComboBox and history of all the files that have been used recently 
+      If the UTLM is not found it display a error message (Error Handling)*/
     private void OpenUTLMFile(){
-        try{
+        try{//Tries to open the file and update the Frame
+            //Read the File
+            //First part of the File
             File fileToOpen = new File("UTLM_SOLVER_command_line.ini");
-            if(fileToOpen.exists()){
-                Scanner x = new Scanner(fileToOpen);
-                int numofItems = Integer.parseInt(x.nextLine());
-                for(int i = 0; i < numofItems; i++){
-                    P2CB2.addItem(x.nextLine());
-                }
-                String Auxi;
-                while(x.hasNextLine()){
-                    Auxi=x.nextLine();
-                    //Creating the new Menu Items
-                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
-                    newMenuItem.setText(Auxi);
-                    newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    File.add(newMenuItem);
-                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
-                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            newMenuItemActionPerformed(evt);
-                        }
-                    });
-                    list.add(Auxi);
-                }
-                x.close();
+            Scanner x = new Scanner(fileToOpen);
+            //Store all Values of the File to the Frame
+            int numofItems = Integer.parseInt(x.nextLine()); //Number of Options Available for the ComboBox
+            for(int i = 0; i < numofItems; i++){
+                P2CB2.addItem(x.nextLine()); // Add option to the ComboBox
             }
+            //Second Part of the File
+            String Auxi;
+            while(x.hasNextLine()){  //If there is still Data 
+                Auxi=x.nextLine();   // Store the data 
+                //Create the new MenuItems of the Paths
+                javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
+                newMenuItem.setText(Auxi); // Assign the path to the MenuItem
+                newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                File.add(newMenuItem); // Add the MenuItem created to the File Menu
+                newMenuItem.addActionListener(new java.awt.event.ActionListener(){ // Add a listener to detect actionsperformed in the MenuItem
+                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        newMenuItemActionPerformed(evt);
+                    }
+                });
+                list.add(Auxi); // Add the path to the list of paths 
+            }
+            x.close(); //Close File
         }
-        catch(Exception e){
-            e.printStackTrace();
+        catch(Exception e){ // The UTLMFile not found
+            JOptionPane.showMessageDialog(null,e.getMessage()); //Displays a message to let know the client.
         }
     }
     
+    /*SaveUTLMFile() 
+      Function responsible to store the data of the ComboBox and history of all the files that have been used recently into the UTLMFile 
+      If the UTLM is not found it display a error message (Error Handling)*/
     private void SaveUTLMFile(){
-        try{
+        try{//Tries to Create a UTLMFile
             File fileToSave = new File("UTLM_SOLVER_command_line.ini");
             fileToSave.createNewFile();
             FileWriter fw = new FileWriter(fileToSave);
-            /*Number of Items*/
-            fw.write(Integer.toString(P2CB2.getItemCount()));
-            for(int i =0;i < P2CB2.getItemCount();i++){
-                fw.write(System.getProperty( "line.separator" ));
-                fw.write(P2CB2.getItemAt(i));
+            //Write the File
+            //FirstPart of the File
+            fw.write(Integer.toString(P2CB2.getItemCount()));//Write the number of options available for the ComboBox
+            for(int i =0;i < P2CB2.getItemCount();i++){ //Goes through all the options of the ComboBox
+                fw.write(System.getProperty( "line.separator" ));  //Writes a line separator to the file
+                fw.write(P2CB2.getItemAt(i));   // Writes each of the options available
             }
-            for(int i = 0;i < list.size();i++){
-                fw.write(System.getProperty( "line.separator"));
-                fw.write(list.get(i));
+            //SecondPart of the File
+            for(int i = 0;i < list.size();i++){ // Goes through all the paths stored in the Frame
+                fw.write(System.getProperty( "line.separator")); //Writes a line separator to the file
+                fw.write(list.get(i));      //Writes each of the paths
             }
-            fw.close();
+            fw.close(); // CloseFile
         }
         
-        catch(Exception e){
-            e.printStackTrace();
+        catch(Exception e){ //Could not create the File
+            JOptionPane.showMessageDialog(null,e.getMessage()); //Displays a message to let know the client.
         }
     }
     
@@ -2080,6 +2103,7 @@ private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
     }
+    
     // Extra Variables
     ArrayList<String> list=new ArrayList<String>();
     String CurrentFile = " ";
