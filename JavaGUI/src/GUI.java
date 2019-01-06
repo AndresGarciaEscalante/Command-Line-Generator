@@ -358,6 +358,14 @@ public class GUI extends javax.swing.JFrame {
                 P2CB2ActionPerformed(evt);
             }
         });
+        P2CB2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                P2CB2KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                P2CB2KeyTyped(evt);
+            }
+        });
 
         P2TF3.setBackground(new java.awt.Color(255, 255, 222));
         P2TF3.setAlignmentX(0.0F);
@@ -963,8 +971,24 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_P2TF1ActionPerformed
 
     private void P2CB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB2ActionPerformed
-       CheckRequiredValues();
-       DisplayInformation();
+        if(P2CB2.getEditor().getItem().toString().length() != 0){
+            if(P2CB2.getItemCount() == 0){
+                P2CB2.addItem(P2CB2.getEditor().getItem().toString());
+            }
+            else{
+                boolean Signal = false;
+                for(int i =0;i < P2CB2.getItemCount();i++){
+                    if(P2CB2.getEditor().getItem().toString().equals(P2CB2.getItemAt(i))){
+                        Signal = true;
+                    }
+                }
+                if(Signal == false){
+                    P2CB2.addItem(P2CB2.getEditor().getItem().toString());
+                }
+            }
+        }
+        CheckRequiredValues();
+        DisplayInformation();
     }//GEN-LAST:event_P2CB2ActionPerformed
 
     private void P2TF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF3ActionPerformed
@@ -1392,6 +1416,14 @@ public class GUI extends javax.swing.JFrame {
         CheckRequiredValues();
         DisplayInformation();
     }//GEN-LAST:event_formWindowOpened
+
+    private void P2CB2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_P2CB2KeyTyped
+        System.out.println("Typed");
+    }//GEN-LAST:event_P2CB2KeyTyped
+
+    private void P2CB2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_P2CB2KeyPressed
+        System.out.println("Pressed");
+    }//GEN-LAST:event_P2CB2KeyPressed
 
     /**
      * @param args the command line arguments
