@@ -927,10 +927,21 @@ public class GUI extends javax.swing.JFrame {
                 for(int i = 0; i < numofItems; i++){
                     P2CB2.addItem(x.nextLine());
                 }
+                String Auxi;
                 while(x.hasNextLine()){
-                    list.add(x.nextLine());
+                    Auxi=x.nextLine();
+                    //Creating the new Menu Items
+                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
+                    newMenuItem.setText(Auxi);
+                    newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    File.add(newMenuItem);
+                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
+                         public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            newMenuItemActionPerformed(evt);
+                        }
+                    });
+                    list.add(Auxi);
                 }
-                System.out.println(list); //Borrar una vez listo
                 x.close();
             }
         }
@@ -1208,7 +1219,7 @@ public class GUI extends javax.swing.JFrame {
                 }
                 x.close();
                 
-                //Adding to the list
+                //Check if the path is in the list, if not add it
                 boolean Signal = false;
                 CurrentFile = fileToOpen.toString();
                 setTitle(CurrentFile);
@@ -1221,7 +1232,7 @@ public class GUI extends javax.swing.JFrame {
                     list.add(fileToOpen.toString());
                 }
                 
-                //Desde aca es nuevo
+                //Creating the new Menu Items
                 javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
                 newMenuItem.setText(CurrentFile);
                 newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1808,6 +1819,9 @@ private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_formWindowOpened
 
     private void ClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearHistoryActionPerformed
+        for(int i =0;i < list.size();i++){
+            File.remove(4);
+        }
         list.removeAll(list);
     }//GEN-LAST:event_ClearHistoryActionPerformed
 
