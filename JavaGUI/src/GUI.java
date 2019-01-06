@@ -996,6 +996,210 @@ public class GUI extends javax.swing.JFrame {
         }
     }
     
+    /*SaveUTLMFile() 
+      Function responsible to store the data of all the frames (-Specific format). 
+      If the UTLM is not found it display a error message (Error Handling)*/
+    private void Save(File fileToSave){
+        try{ //Tries to write the scl file
+            FileWriter fw = new FileWriter(fileToSave);
+            /*Row 1 of File*/
+            String Auxi = OutputCommandLine.getText();
+            if(P2CB2.getItemCount() != 0){
+                Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); //Removes the first part of the CommandLine
+            }
+            else{
+                Auxi = Auxi.replaceFirst(" ",""); //Removes only an empty space
+            }
+            fw.write(Auxi); //Write the Value in the file
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 2 of File*/
+            fw.write(OutputCommandLine.getText()); //Write the Value in the file
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 3 of File*/
+            fw.write(P2TF1.getText()); //Write the Value in the file
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 4 of File*/
+            if(P2CB2.getItemCount() != 0){
+                fw.write(P2CB2.getSelectedItem().toString()); //Write the Value in the file   
+            }
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 5 of File*/
+            fw.write(P2TF3.getText()); //Write the Value in the file                  
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 6 of File*/            
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 7 of File*/
+            fw.write(P2TF5.getText());   //Write the Value in the file            
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 8 of File*/
+            if(P2CB6.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 9 of File*/                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+             /*Row 10 of File*/
+            fw.write(P2TF7.getText());   //Write the Value in the file            
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+             /*Row 11 of File*/
+            fw.write(P2TF8.getText());   //Write the Value in the file             
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 12 of File*/               
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 13 of File*/
+            fw.write(P2TF10.getText());  //Write the Value in the file
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 14 of File*/
+            if(P2CB11.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 15 of File*/                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 16 of File*/              
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 17 of File*/
+            if(P2CB13.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 18 of File*/                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 19 of File*/
+            if(P2CB14.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 20 of File*/              
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 21 of File*/
+            if(P2CB15.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }               
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 22 of File*/               
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 23 of File*/
+            if(P2CB16.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 24 of File*/                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 25 of File*/
+            if(P2CB17.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }               
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 26 of File*/              
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 27 of File*/            
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 28 of File*/
+            if(P2CB19.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            } 
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 29 of File*/                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 30 of File*/
+            if(P2CB20.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }                
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 31 of File*/     
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 32 of File*/
+            if(P2CB21.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }      
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 33 of File*/ 
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 34 of File*/
+            if(P2CB22.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }     
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 35 of File*/           
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 36 of File*/
+            if(P2CB23.isSelected()){ //If the CheckBox was selected write 2 , else 0
+                fw.write("2");
+            }
+            else {
+                fw.write("0");
+            }
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 37 of File*/
+            fw.write(System.getProperty( "line.separator" )); //Write a line separator
+            /*Row 38 of File*/ 
+            fw.close(); //CloseFile
+
+            //Adding to the list
+            boolean Signal = false; //Variable that help us check if the path is stored in the list 
+            CurrentFile = fileToSave.toString();
+            setTitle(CurrentFile);
+            for(int i =0;i < list.size();i++){ //Checks the whole list of paths
+                if(CurrentFile.equals(list.get(i))){ //If the path is equal to one of the list set Signal to true (Dont add to the list again)
+                    Signal = true;
+                }
+            }
+            if(Signal == false){ //If the path was not found on the list 
+                list.add(fileToSave.toString()); //Add the path the list
+                //Creating the new Menu Items
+                javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem(); //Creates a MenuItem
+                newMenuItem.setText(CurrentFile); //Sets the path as the text of the MenuItem
+                newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                File.add(newMenuItem); //Add the MenuItem to the Menu
+                newMenuItem.addActionListener(new java.awt.event.ActionListener(){ //If the MenuItem is pressed execute the action
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        newMenuItemActionPerformed(evt);// Calls the event acttion newMenuItemPerformed
+                    }
+                });
+            }
+        }
+        catch(IOException e){ //Could not Write The File succesfully
+            JOptionPane.showMessageDialog(null,e.getMessage()); //Displays a message to let know the client.
+        }
+    }
+    
+    /* #ActionPerformed of all the Textfiels,ComboBox, and Check Boxes#
+       In this Section, the functions CheckRequiredValues(),CheckOptionalValues, and DisplayInformation are called when any actions have been taken on them.
+       This allow the data to keep updated whenever any change is made.*/
     private void P2TF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2TF1ActionPerformed
         CheckRequiredValues();
         DisplayInformation();
@@ -1094,7 +1298,7 @@ public class GUI extends javax.swing.JFrame {
     private void P2CB23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2CB23ActionPerformed
         DisplayInformation();
     }//GEN-LAST:event_P2CB23ActionPerformed
-                 
+    /*#End of ActionPerformed of all the Textfiels,ComboBox, and Check Boxes#*/
     
     
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
@@ -1435,638 +1639,61 @@ private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
 }
 
     private void SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveAsActionPerformed
+        //Create a Save FileChooser
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Open File");
-        FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
+        chooser.setDialogTitle("Save File");
+        FileFilter filter = new FileNameExtensionFilter("scl Files",".scl");
         chooser.setFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false); //Disable all Files
         int result = chooser.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            File fileToSave = chooser.getSelectedFile();
-            try{
-                FileWriter fw = new FileWriter(fileToSave);
-                /*Row 1 of File*/
-                String Auxi = OutputCommandLine.getText();
-                if(P2CB2.getItemCount() != 0){
-                    Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
-                }
-                else{
-                    Auxi = Auxi.replaceFirst(" ","");
-                }
-                fw.write(Auxi);
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 2 of File*/
-                fw.write(OutputCommandLine.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 3 of File*/
-                fw.write(P2TF1.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 4 of File*/
-                if(P2CB2.getItemCount() != 0){
-                    fw.write(P2CB2.getSelectedItem().toString());    
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 5 of File*/
-                fw.write(P2TF3.getText());                  
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 6 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 7 of File*/
-                fw.write(P2TF5.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 8 of File*/
-                if(P2CB6.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 9 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 10 of File*/
-                fw.write(P2TF7.getText());              
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 11 of File*/
-                fw.write(P2TF8.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 12 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 13 of File*/
-                fw.write(P2TF10.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 14 of File*/
-                if(P2CB11.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 15 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 16 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 17 of File*/
-                if(P2CB13.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 18 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 19 of File*/
-                if(P2CB14.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 20 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 21 of File*/
-                if(P2CB15.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 22 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 23 of File*/
-                if(P2CB16.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 24 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 25 of File*/
-                if(P2CB17.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 26 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 27 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 28 of File*/
-                if(P2CB19.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 29 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 30 of File*/
-                if(P2CB20.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 31 of File*/     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 32 of File*/
-                if(P2CB21.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }      
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 33 of File*/ 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 34 of File*/
-                if(P2CB22.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 35 of File*/           
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 36 of File*/
-                if(P2CB23.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 37 of File*/
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 38 of File*/ 
-                fw.close();
-                
-                //Adding to the list
-                boolean Signal = false;
-                CurrentFile = fileToSave.toString();
-                setTitle(CurrentFile);
-                for(int i =0;i < list.size();i++){
-                    if(CurrentFile.equals(list.get(i))){
-                        Signal = true;
-                    }
-                }
-                if(Signal == false){
-                    list.add(fileToSave.toString());
-                    //Creating the new Menu Items
-                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
-                    newMenuItem.setText(CurrentFile);
-                    newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    File.add(newMenuItem);
-                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
-                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            newMenuItemActionPerformed(evt);
-                        }
-                    });
-                }
-            }
-            catch(IOException e){
-                System.out.println("Problem to Save the file");
-            }
+        if(result == JFileChooser.APPROVE_OPTION){ //If the Save Button is pressed 
+            String Auxi = chooser.getSelectedFile().toString() + ".scl";
+            File fileToSave = new File(Auxi); //File with the path introduced in the Save FileChooser
+            Save(fileToSave); //Store all the information in the .scl File
         }
     }//GEN-LAST:event_SaveAsActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        if(CurrentFile.equals(" ")){
-            System.out.println("No me inicialzaron");
+        if(CurrentFile.equals(" ")){ // Executed when no file is being used.
+            //Create a Save FileChooser
             JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Open File");
-        FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
-        chooser.setFileFilter(filter);
-        int result = chooser.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            File fileToSave = chooser.getSelectedFile();
-            try{
-                FileWriter fw = new FileWriter(fileToSave);
-                /*Row 1 of File*/
-                String Auxi = OutputCommandLine.getText();
-                if(P2CB2.getItemCount() != 0){
-                    Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
-                }
-                else{
-                    Auxi = Auxi.replaceFirst(" ","");
-                }
-                fw.write(Auxi);
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 2 of File*/
-                fw.write(OutputCommandLine.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 3 of File*/
-                fw.write(P2TF1.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 4 of File*/
-                if(P2CB2.getItemCount() != 0){
-                    fw.write(P2CB2.getSelectedItem().toString());    
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 5 of File*/
-                fw.write(P2TF3.getText());                  
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 6 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 7 of File*/
-                fw.write(P2TF5.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 8 of File*/
-                if(P2CB6.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 9 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 10 of File*/
-                fw.write(P2TF7.getText());              
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 11 of File*/
-                fw.write(P2TF8.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 12 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 13 of File*/
-                fw.write(P2TF10.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 14 of File*/
-                if(P2CB11.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 15 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 16 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 17 of File*/
-                if(P2CB13.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 18 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 19 of File*/
-                if(P2CB14.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 20 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 21 of File*/
-                if(P2CB15.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 22 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 23 of File*/
-                if(P2CB16.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 24 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 25 of File*/
-                if(P2CB17.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 26 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 27 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 28 of File*/
-                if(P2CB19.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 29 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 30 of File*/
-                if(P2CB20.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 31 of File*/     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 32 of File*/
-                if(P2CB21.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }      
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 33 of File*/ 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 34 of File*/
-                if(P2CB22.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 35 of File*/           
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 36 of File*/
-                if(P2CB23.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 37 of File*/
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 38 of File*/ 
-                fw.close();
-                
-                //Adding to the list
-                boolean Signal = false;
-                CurrentFile = fileToSave.toString();
-                setTitle(CurrentFile);
-                for(int i =0;i < list.size();i++){
-                    if(CurrentFile.equals(list.get(i))){
-                        Signal = true;
-                    }
-                }
-                if(Signal == false){
-                    list.add(fileToSave.toString());
-                    //Creating the new Menu Items
-                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
-                    newMenuItem.setText(CurrentFile);
-                    newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    File.add(newMenuItem);
-                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
-                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            newMenuItemActionPerformed(evt);
-                        }
-                    });
-                }
-            }
-            catch(IOException e){
-                System.out.println("Problem to Save the file");
-            }
-        }
-            
-        }
-        else{
-            File fileToSave = new File(CurrentFile);
-            try{
-                FileWriter fw = new FileWriter(fileToSave);
-                /*Row 1 of File*/
-                String Auxi = OutputCommandLine.getText();
-                if(P2CB2.getItemCount() != 0){
-                    Auxi = Auxi.replaceFirst(P2CB2.getSelectedItem().toString()+" ",""); 
-                }
-                else{
-                    Auxi = Auxi.replaceFirst(" ","");
-                }
-                fw.write(Auxi);
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 2 of File*/
-                fw.write(OutputCommandLine.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 3 of File*/
-                fw.write(P2TF1.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 4 of File*/
-                if(P2CB2.getItemCount() != 0){
-                    fw.write(P2CB2.getSelectedItem().toString());    
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 5 of File*/
-                fw.write(P2TF3.getText());                  
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 6 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 7 of File*/
-                fw.write(P2TF5.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 8 of File*/
-                if(P2CB6.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 9 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 10 of File*/
-                fw.write(P2TF7.getText());              
-                fw.write(System.getProperty( "line.separator" ));
-                 /*Row 11 of File*/
-                fw.write(P2TF8.getText());               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 12 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 13 of File*/
-                fw.write(P2TF10.getText());
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 14 of File*/
-                if(P2CB11.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 15 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 16 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 17 of File*/
-                if(P2CB13.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 18 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 19 of File*/
-                if(P2CB14.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 20 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 21 of File*/
-                if(P2CB15.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 22 of File*/               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 23 of File*/
-                if(P2CB16.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 24 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 25 of File*/
-                if(P2CB17.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }               
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 26 of File*/              
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 27 of File*/            
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 28 of File*/
-                if(P2CB19.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                } 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 29 of File*/                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 30 of File*/
-                if(P2CB20.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }                
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 31 of File*/     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 32 of File*/
-                if(P2CB21.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }      
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 33 of File*/ 
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 34 of File*/
-                if(P2CB22.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }     
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 35 of File*/           
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 36 of File*/
-                if(P2CB23.isSelected()){
-                    fw.write("2");
-                }
-                else {
-                    fw.write("0");
-                }
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 37 of File*/
-                fw.write(System.getProperty( "line.separator" ));
-                /*Row 38 of File*/ 
-                fw.close();
-                
-                //Adding to the list
-                boolean Signal = false;
-                CurrentFile = fileToSave.toString();
-                setTitle(CurrentFile);
-                for(int i =0;i < list.size();i++){
-                    if(CurrentFile.equals(list.get(i))){
-                        Signal = true;
-                    }
-                }
-                if(Signal == false){
-                    list.add(fileToSave.toString());
-                    //Creating the new Menu Items
-                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
-                    newMenuItem.setText(CurrentFile);
-                    newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    File.add(newMenuItem);
-                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
-                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            newMenuItemActionPerformed(evt);
-                        }
-                    });
-                }
-            }
-            catch(IOException e){
-                System.out.println("Problem to Save the file");
-            }
+            chooser.setDialogTitle("Save File");
+            FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
+            chooser.setFileFilter(filter);
+            chooser.setAcceptAllFileFilterUsed(false); //Disable all Files
+            int result = chooser.showSaveDialog(null);
+            if(result == JFileChooser.APPROVE_OPTION){ //If the Save Button is pressed 
+                String Auxi = chooser.getSelectedFile().toString() + ".scl";
+                File fileToSave = new File(Auxi); //File with the path introduced in the Save FileChooser
+                Save(fileToSave); //Store all the information in the .scl File
+            }     
+        }       
+        else{ // Executed when a file is being used 
+            File fileToSave = new File(CurrentFile); //File with the current working path
+            Save(fileToSave); //Store all the information in the .scl File
         }
     }//GEN-LAST:event_SaveActionPerformed
-
+    //Action executed when the Buttton is been pressed "Clear Launches"
     private void ClearLaunchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearLaunchesActionPerformed
-        P2CB2.removeAllItems();
+        P2CB2.removeAllItems(); //Erase all the Available Options of the ComboBox
     }//GEN-LAST:event_ClearLaunchesActionPerformed
-
+    //Called when exiting the Frame
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        SaveUTLMFile();
+        SaveUTLMFile(); //Save data to the UTLMFile
     }//GEN-LAST:event_formWindowClosing
-
+    //Called when openning the Frame
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        OpenUTLMFile();
-        CheckRequiredValues();
-        DisplayInformation();
+        OpenUTLMFile();  // Update the data with the UTLMFile
+        CheckRequiredValues(); //Check the data of the required spaces
+        DisplayInformation();  //Update the CommandLine output
     }//GEN-LAST:event_formWindowOpened
-
+    //Action executed when the Button is been pressed "Clear History"
     private void ClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearHistoryActionPerformed
+        //Goes though all the paths stored
         for(int i =0;i < list.size();i++){
-            File.remove(4);
+            File.remove(4); //Remove the path from the Menu
         }
-        list.removeAll(list);
+        list.removeAll(list); // Remove all paths from the record
     }//GEN-LAST:event_ClearHistoryActionPerformed
 
     /**
@@ -2105,8 +1732,8 @@ private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
     }
     
     // Extra Variables
-    ArrayList<String> list=new ArrayList<String>();
-    String CurrentFile = " ";
+    ArrayList<String> list=new ArrayList<String>(); //Stores the paths of all the recent files opened
+    String CurrentFile = " "; //Stores the current path that is being used
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ClearHistory;
     private javax.swing.JMenuItem ClearLaunches;
