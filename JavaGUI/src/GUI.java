@@ -1191,10 +1191,159 @@ public class GUI extends javax.swing.JFrame {
                     }
                 });
             }
+            JOptionPane.showMessageDialog(null,"Successfully Saved");
         }
         catch(IOException e){ //Could not Write The File succesfully
             JOptionPane.showMessageDialog(null,e.getMessage()); //Displays a message to let know the client.
         }
+    }
+    
+    /*newMenuItemActionPerformed()
+      Function Called when any of the paths Button is pressed and it updates the Frame with all the information of the .scl file*/
+    private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        CurrentFile = evt.getActionCommand();
+        setTitle(CurrentFile);
+        File fileToOpen = new File(CurrentFile);
+        try{
+            Scanner x = new Scanner(fileToOpen);
+            /*Row 1 of File*/
+            x.nextLine(); //Discards first Line
+            /*Row 2 of File*/
+            String Auxi = x.nextLine(); 
+            /*Row 3 of File*/
+            P2TF1.setText(x.nextLine());  //Updates the data of the Frame               
+            /*Row 4 of File*/
+            P2CB2.setSelectedItem(x.nextLine()); //Updates the data of the Frame
+            OutputCommandLine.setText(Auxi);              
+            /*Row 5 of File*/
+            P2TF3.setText(x.nextLine());    //Updates the data of the Frame             
+            /*Row 6 of File*/
+            x.nextLine();  //Discards Line               
+            /*Row 7 of File*/
+            P2TF5.setText(x.nextLine());    //Updates the data of the Frame           
+            /*Row 8 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){ //If value read is 2 then set to true, else false
+                P2CB6.setSelected(true);
+            }
+            else{
+                P2CB6.setSelected(false);
+            }                
+            /*Row 9 of File*/
+            x.nextLine(); //Discards Line               
+             /*Row 10 of File*/
+            P2TF7.setText(x.nextLine());      //Updates the data of the Frame        
+             /*Row 11 of File*/
+            P2TF8.setText(x.nextLine());    //Updates the data of the Frame           
+            /*Row 12 of File*/
+            x.nextLine(); //Discards Line               
+            /*Row 13 of File*/
+            P2TF10.setText(x.nextLine());   //Updates the data of the Frame
+            /*Row 14 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB11.setSelected(true);
+            }
+            else{
+                P2CB11.setSelected(false);
+            }
+            /*Row 15 of File*/
+            x.nextLine(); //Discards Line               
+            /*Row 16 of File*/
+            x.nextLine();  //Discards Line              
+            /*Row 17 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB13.setSelected(true);
+            }
+            else{
+                P2CB13.setSelected(false);
+            }                
+            /*Row 18 of File*/
+            x.nextLine();  //Discards Line               
+            /*Row 19 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB14.setSelected(true);
+            }
+            else{
+                P2CB14.setSelected(false);
+            }               
+            /*Row 20 of File*/
+            x.nextLine();   //Discards Line              
+            /*Row 21 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB15.setSelected(true);
+            }
+            else{
+                P2CB15.setSelected(false);
+            }               
+            /*Row 22 of File*/
+            x.nextLine();    //Discards Line           
+            /*Row 23 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB16.setSelected(true);
+            }
+            else{
+                P2CB16.setSelected(false);
+            }                
+            /*Row 24 of File*/
+            x.nextLine();   //Discards Line             
+            /*Row 25 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB17.setSelected(true);
+            }
+            else{
+                P2CB17.setSelected(false);
+            }               
+            /*Row 26 of File*/
+            x.nextLine();    //Discards Line            
+            /*Row 27 of File*/
+            x.nextLine();    //Discards Line        
+            /*Row 28 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB19.setSelected(true);
+            }
+            else{
+                P2CB19.setSelected(false);
+            } 
+            /*Row 29 of File*/
+            x.nextLine();   //Discards Line              
+            /*Row 30 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB20.setSelected(true);
+            }
+            else{
+                P2CB20.setSelected(false);
+            }               
+            /*Row 31 of File*/
+            x.nextLine();    //Discards Line 
+            /*Row 32 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB21.setSelected(true);
+            }
+            else{
+                P2CB21.setSelected(false);
+            }      
+            /*Row 33 of File*/
+            x.nextLine();     //Discards Line
+            /*Row 34 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB22.setSelected(true);
+            }
+            else{
+                P2CB22.setSelected(false);
+            }    
+            /*Row 35 of File*/
+            x.nextLine();   //Discards Line        
+            /*Row 36 of File*/
+            if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
+                P2CB23.setSelected(true);
+            }
+            else{
+                P2CB23.setSelected(false);
+            }
+            x.close(); //Close File
+        }
+        catch(Exception e){ //Error while Reading the File
+            JOptionPane.showMessageDialog(null,"Problem While Reading the file"); //Displays a message to let know the client.
+        } 
     }
     
     /* #ActionPerformed of all the Textfiels,ComboBox, and Check Boxes#
@@ -1300,359 +1449,215 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_P2CB23ActionPerformed
     /*#End of ActionPerformed of all the Textfiels,ComboBox, and Check Boxes#*/
     
-    
+    /*OpenActionPerformed()
+      Function called when the Open Button is pressed and enables the Open Filechooser Window.
+      Reads the content of the file .scl and updates the information
+    */
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
+        //Creates a Open FileChooser
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Open File");
         FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
         chooser.setFileFilter(filter);
         int result = chooser.showOpenDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
+        if(result == JFileChooser.APPROVE_OPTION){ //If Open Button was pressed 
             File fileToOpen = chooser.getSelectedFile();
-            try{
+            try{ //Tries to Open the File 
                 Scanner x = new Scanner(fileToOpen);
                 /*Row 1 of File*/
-                x.nextLine();
+                x.nextLine(); //Discards first Line
                 /*Row 2 of File*/
-                String Auxi = x.nextLine();
+                String Auxi = x.nextLine(); 
                 /*Row 3 of File*/
-                P2TF1.setText(x.nextLine());                
+                P2TF1.setText(x.nextLine());  //Updates the data of the Frame               
                 /*Row 4 of File*/
-                P2CB2.setSelectedItem(x.nextLine());
+                P2CB2.setSelectedItem(x.nextLine()); //Updates the data of the Frame
                 OutputCommandLine.setText(Auxi);              
                 /*Row 5 of File*/
-                P2TF3.setText(x.nextLine());                 
+                P2TF3.setText(x.nextLine());    //Updates the data of the Frame             
                 /*Row 6 of File*/
-                x.nextLine();               
+                x.nextLine();  //Discards Line               
                 /*Row 7 of File*/
-                P2TF5.setText(x.nextLine());               
+                P2TF5.setText(x.nextLine());    //Updates the data of the Frame           
                 /*Row 8 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){ //If value read is 2 then set to true, else false
                     P2CB6.setSelected(true);
                 }
                 else{
                     P2CB6.setSelected(false);
                 }                
                 /*Row 9 of File*/
-                x.nextLine();               
+                x.nextLine(); //Discards Line               
                  /*Row 10 of File*/
-                P2TF7.setText(x.nextLine());              
+                P2TF7.setText(x.nextLine());      //Updates the data of the Frame        
                  /*Row 11 of File*/
-                P2TF8.setText(x.nextLine());               
+                P2TF8.setText(x.nextLine());    //Updates the data of the Frame           
                 /*Row 12 of File*/
-                x.nextLine();               
+                x.nextLine(); //Discards Line               
                 /*Row 13 of File*/
-                P2TF10.setText(x.nextLine());
+                P2TF10.setText(x.nextLine());   //Updates the data of the Frame
                 /*Row 14 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB11.setSelected(true);
                 }
                 else{
                     P2CB11.setSelected(false);
                 }
                 /*Row 15 of File*/
-                x.nextLine();               
+                x.nextLine(); //Discards Line               
                 /*Row 16 of File*/
-                x.nextLine();                
+                x.nextLine();  //Discards Line              
                 /*Row 17 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB13.setSelected(true);
                 }
                 else{
                     P2CB13.setSelected(false);
                 }                
                 /*Row 18 of File*/
-                x.nextLine();                
+                x.nextLine();  //Discards Line               
                 /*Row 19 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB14.setSelected(true);
                 }
                 else{
                     P2CB14.setSelected(false);
                 }               
                 /*Row 20 of File*/
-                x.nextLine();                
+                x.nextLine();   //Discards Line              
                 /*Row 21 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB15.setSelected(true);
                 }
                 else{
                     P2CB15.setSelected(false);
                 }               
                 /*Row 22 of File*/
-                x.nextLine();               
+                x.nextLine();    //Discards Line           
                 /*Row 23 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB16.setSelected(true);
                 }
                 else{
                     P2CB16.setSelected(false);
                 }                
                 /*Row 24 of File*/
-                x.nextLine();                
+                x.nextLine();   //Discards Line             
                 /*Row 25 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB17.setSelected(true);
                 }
                 else{
                     P2CB17.setSelected(false);
                 }               
                 /*Row 26 of File*/
-                x.nextLine();                
+                x.nextLine();    //Discards Line            
                 /*Row 27 of File*/
-                x.nextLine();            
+                x.nextLine();    //Discards Line        
                 /*Row 28 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB19.setSelected(true);
                 }
                 else{
                     P2CB19.setSelected(false);
                 } 
                 /*Row 29 of File*/
-                x.nextLine();               
+                x.nextLine();   //Discards Line              
                 /*Row 30 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB20.setSelected(true);
                 }
                 else{
                     P2CB20.setSelected(false);
                 }               
                 /*Row 31 of File*/
-                x.nextLine();     
+                x.nextLine();    //Discards Line 
                 /*Row 32 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB21.setSelected(true);
                 }
                 else{
                     P2CB21.setSelected(false);
                 }      
                 /*Row 33 of File*/
-                x.nextLine();
+                x.nextLine();     //Discards Line
                 /*Row 34 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB22.setSelected(true);
                 }
                 else{
                     P2CB22.setSelected(false);
                 }    
                 /*Row 35 of File*/
-                x.nextLine();           
+                x.nextLine();   //Discards Line        
                 /*Row 36 of File*/
-                if(Double.parseDouble(x.nextLine()) == 2){
+                if(Double.parseDouble(x.nextLine()) == 2){//If value read is 2 then set to true, else false
                     P2CB23.setSelected(true);
                 }
                 else{
                     P2CB23.setSelected(false);
                 }
-                x.close();
+                x.close(); //Close File
                 
                 //Check if the path is in the list, if not add it
-                boolean Signal = false;
+                boolean Signal = false; //Variable use to compare in the CurrentFile is already in the list
                 CurrentFile = fileToOpen.toString();
                 setTitle(CurrentFile);
-                for(int i =0;i < list.size();i++){
-                    if(CurrentFile.equals(list.get(i))){
+                for(int i =0;i < list.size();i++){ //Look if the path is already in the list stored
+                    if(CurrentFile.equals(list.get(i))){ // If it is found then do not add again
                         Signal = true;
                     }
                 }
-                if(Signal == false){
+                if(Signal == false){ // The path was not found in the list then add it 
                     list.add(fileToOpen.toString());
                     //Creating the new Menu Items
-                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
-                    newMenuItem.setText(CurrentFile);
+                    javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem(); // Create a Menu Item
+                    newMenuItem.setText(CurrentFile); //Write the MenuItem Text
                     newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    File.add(newMenuItem);
-                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){
+                    File.add(newMenuItem); // add the MenuItem to the Menu
+                    newMenuItem.addActionListener(new java.awt.event.ActionListener(){ //Create a eventlistener for the Menu Item
                          public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            newMenuItemActionPerformed(evt);
+                            newMenuItemActionPerformed(evt); 
                         }
                     });
                 }
-                //jMenuBar1.add(File);
-                System.out.println(File.getItemCount());  
-               // File.remove(4);
-                //System.out.println(File.getItemCount()); 
-                
-                for(int i = 0;i < File.getItemCount();i++){
-                    System.out.println(File.getItem(i).getText());
-                }
             }
-            catch(Exception e){
-                System.out.println("Problem Openning the File Open");
+            catch(Exception e){ //Problem While Reading the File
+                JOptionPane.showMessageDialog(null,"Problem While Reading the file"); //Displays a message to let know the client.
             }   
         }
     }//GEN-LAST:event_OpenActionPerformed
-private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-    CurrentFile = evt.getActionCommand();
-    setTitle(CurrentFile);
-    try{
-        File fileToOpen = new File(CurrentFile);
-        Scanner x = new Scanner(fileToOpen);
-        /*Row 1 of File*/
-        x.nextLine();
-        /*Row 2 of File*/
-        String Auxi = x.nextLine();
-        /*Row 3 of File*/
-        P2TF1.setText(x.nextLine());                
-        /*Row 4 of File*/
-        P2CB2.setSelectedItem(x.nextLine());
-        OutputCommandLine.setText(Auxi);              
-        /*Row 5 of File*/
-        P2TF3.setText(x.nextLine());                 
-        /*Row 6 of File*/
-        x.nextLine();               
-        /*Row 7 of File*/
-        P2TF5.setText(x.nextLine());               
-        /*Row 8 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB6.setSelected(true);
-        }
-        else{
-            P2CB6.setSelected(false);
-        }                
-        /*Row 9 of File*/
-        x.nextLine();               
-         /*Row 10 of File*/
-        P2TF7.setText(x.nextLine());              
-         /*Row 11 of File*/
-        P2TF8.setText(x.nextLine());               
-        /*Row 12 of File*/
-        x.nextLine();               
-        /*Row 13 of File*/
-        P2TF10.setText(x.nextLine());
-        /*Row 14 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB11.setSelected(true);
-        }
-        else{
-            P2CB11.setSelected(false);
-        }
-        /*Row 15 of File*/
-        x.nextLine();               
-        /*Row 16 of File*/
-        x.nextLine();                
-        /*Row 17 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB13.setSelected(true);
-        }
-        else{
-            P2CB13.setSelected(false);
-        }                
-        /*Row 18 of File*/
-        x.nextLine();                
-        /*Row 19 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB14.setSelected(true);
-        }
-        else{
-            P2CB14.setSelected(false);
-        }               
-        /*Row 20 of File*/
-        x.nextLine();                
-        /*Row 21 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB15.setSelected(true);
-        }
-        else{
-            P2CB15.setSelected(false);
-        }               
-        /*Row 22 of File*/
-        x.nextLine();               
-        /*Row 23 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB16.setSelected(true);
-        }
-        else{
-            P2CB16.setSelected(false);
-        }                
-        /*Row 24 of File*/
-        x.nextLine();                
-        /*Row 25 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB17.setSelected(true);
-        }
-        else{
-            P2CB17.setSelected(false);
-        }               
-        /*Row 26 of File*/
-        x.nextLine();                
-        /*Row 27 of File*/
-        x.nextLine();            
-        /*Row 28 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB19.setSelected(true);
-        }
-        else{
-            P2CB19.setSelected(false);
-        } 
-        /*Row 29 of File*/
-        x.nextLine();               
-        /*Row 30 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB20.setSelected(true);
-        }
-        else{
-            P2CB20.setSelected(false);
-        }               
-        /*Row 31 of File*/
-        x.nextLine();     
-        /*Row 32 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB21.setSelected(true);
-        }
-        else{
-            P2CB21.setSelected(false);
-        }      
-        /*Row 33 of File*/
-        x.nextLine();
-        /*Row 34 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB22.setSelected(true);
-        }
-        else{
-            P2CB22.setSelected(false);
-        }    
-        /*Row 35 of File*/
-        x.nextLine();           
-        /*Row 36 of File*/
-        if(Double.parseDouble(x.nextLine()) == 2){
-            P2CB23.setSelected(true);
-        }
-        else{
-            P2CB23.setSelected(false);
-        }
-        x.close();
-
-        //jMenuBar1.add(File);
-        System.out.println(File.getItemCount());  
-       // File.remove(4);
-        System.out.println("Presionaron Un Path"); 
-
-        for(int i = 0;i < File.getItemCount();i++){
-            System.out.println(File.getItem(i).getText());
-        }
-    }
-    catch(Exception e){
-        System.out.println("Problem Openning the File Menu");
-    } 
-    System.out.println(evt.getActionCommand());
-}
-
+    
+    
+    /*SaveAsActionPerformed()
+      Function called when the SaveAs Button is pressed and enables the Save Filechooser Window.
+      It only let the user store ".scl" files*/
     private void SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveAsActionPerformed
         //Create a Save FileChooser
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Save File");
-        FileFilter filter = new FileNameExtensionFilter("scl Files",".scl");
+        FileFilter filter = new FileNameExtensionFilter("scl Files","scl");
         chooser.setFileFilter(filter);
         chooser.setAcceptAllFileFilterUsed(false); //Disable all Files
         int result = chooser.showSaveDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){ //If the Save Button is pressed 
-            String Auxi = chooser.getSelectedFile().toString() + ".scl";
+            String Auxi;
+            boolean bool = chooser.getSelectedFile().toString().contains(".scl");
+            if(bool){
+                Auxi = chooser.getSelectedFile().toString();
+            }
+            else {
+                Auxi = chooser.getSelectedFile().toString() + ".scl";
+            }
             File fileToSave = new File(Auxi); //File with the path introduced in the Save FileChooser
             Save(fileToSave); //Store all the information in the .scl File
         }
     }//GEN-LAST:event_SaveAsActionPerformed
-
+    
+    /*SaveActionPerformed()
+      Function called when the Save Button is pressed and enables the Save Filechooser Window (If no files was previusly used).
+      Else it Saves the state in the current path.
+      It only let the user store ".scl" files*/
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         if(CurrentFile.equals(" ")){ // Executed when no file is being used.
             //Create a Save FileChooser
@@ -1673,20 +1678,24 @@ private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
             Save(fileToSave); //Store all the information in the .scl File
         }
     }//GEN-LAST:event_SaveActionPerformed
+    
     //Action executed when the Buttton is been pressed "Clear Launches"
     private void ClearLaunchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearLaunchesActionPerformed
         P2CB2.removeAllItems(); //Erase all the Available Options of the ComboBox
     }//GEN-LAST:event_ClearLaunchesActionPerformed
+    
     //Called when exiting the Frame
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         SaveUTLMFile(); //Save data to the UTLMFile
     }//GEN-LAST:event_formWindowClosing
+    
     //Called when openning the Frame
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         OpenUTLMFile();  // Update the data with the UTLMFile
         CheckRequiredValues(); //Check the data of the required spaces
         DisplayInformation();  //Update the CommandLine output
     }//GEN-LAST:event_formWindowOpened
+    
     //Action executed when the Button is been pressed "Clear History"
     private void ClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearHistoryActionPerformed
         //Goes though all the paths stored
