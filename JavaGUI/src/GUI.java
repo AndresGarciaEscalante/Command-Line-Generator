@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,8 +25,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Icon.PNG"))); //Set Icon Image
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -645,9 +646,11 @@ public class GUI extends javax.swing.JFrame {
         File.setOpaque(true);
 
         Open.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        Open.setBackground(new java.awt.Color(226, 240, 217));
         Open.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Open_1493293.png")); // NOI18N
         Open.setText("Open (Ctrl-O)");
         Open.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Open.setOpaque(true);
         Open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OpenActionPerformed(evt);
@@ -656,9 +659,11 @@ public class GUI extends javax.swing.JFrame {
         File.add(Open);
 
         Save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Save.setBackground(new java.awt.Color(226, 240, 217));
         Save.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_floppy_disk_save_103863.png")); // NOI18N
         Save.setText("Save (Ctrl-S)");
         Save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Save.setOpaque(true);
         Save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveActionPerformed(evt);
@@ -666,9 +671,11 @@ public class GUI extends javax.swing.JFrame {
         });
         File.add(Save);
 
+        SaveAs.setBackground(new java.awt.Color(226, 240, 217));
         SaveAs.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Download_1031520.png")); // NOI18N
         SaveAs.setText("SaveAs");
         SaveAs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveAs.setOpaque(true);
         SaveAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveAsActionPerformed(evt);
@@ -676,9 +683,11 @@ public class GUI extends javax.swing.JFrame {
         });
         File.add(SaveAs);
 
+        ClearHistory.setBackground(new java.awt.Color(226, 240, 217));
         ClearHistory.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_circle-backup-time-history-recent-time-machine-outline-stroke_763474.png")); // NOI18N
         ClearHistory.setText("Clear History");
         ClearHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearHistory.setOpaque(true);
         ClearHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearHistoryActionPerformed(evt);
@@ -695,9 +704,11 @@ public class GUI extends javax.swing.JFrame {
         ClearOptions.setFocusPainted(true);
         ClearOptions.setOpaque(true);
 
+        ClearLaunches.setBackground(new java.awt.Color(226, 240, 217));
         ClearLaunches.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_draw-08_725558.png")); // NOI18N
         ClearLaunches.setText("Clear Launches");
         ClearLaunches.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearLaunches.setOpaque(true);
         ClearLaunches.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearLaunchesActionPerformed(evt);
@@ -953,6 +964,8 @@ public class GUI extends javax.swing.JFrame {
                 javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem();
                 newMenuItem.setText(Auxi); // Assign the path to the MenuItem
                 newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newMenuItem.setOpaque(true);
+                newMenuItem.setBackground(new java.awt.Color(226,240,217));
                 File.add(newMenuItem); // Add the MenuItem created to the File Menu
                 newMenuItem.addActionListener(new java.awt.event.ActionListener(){ // Add a listener to detect actionsperformed in the MenuItem
                      public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1183,6 +1196,8 @@ public class GUI extends javax.swing.JFrame {
                 //Creating the new Menu Items
                 javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem(); //Creates a MenuItem
                 newMenuItem.setText(CurrentFile); //Sets the path as the text of the MenuItem
+                newMenuItem.setOpaque(true);
+                newMenuItem.setBackground(new java.awt.Color(226,240,217));
                 newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 File.add(newMenuItem); //Add the MenuItem to the Menu
                 newMenuItem.addActionListener(new java.awt.event.ActionListener(){ //If the MenuItem is pressed execute the action
@@ -1614,6 +1629,8 @@ public class GUI extends javax.swing.JFrame {
                     javax.swing.JMenuItem newMenuItem = new javax.swing.JMenuItem(); // Create a Menu Item
                     newMenuItem.setText(CurrentFile); //Write the MenuItem Text
                     newMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    newMenuItem.setOpaque(true);
+                    newMenuItem.setBackground(new java.awt.Color(226,240,217));
                     File.add(newMenuItem); // add the MenuItem to the Menu
                     newMenuItem.addActionListener(new java.awt.event.ActionListener(){ //Create a eventlistener for the Menu Item
                          public void actionPerformed(java.awt.event.ActionEvent evt) {
