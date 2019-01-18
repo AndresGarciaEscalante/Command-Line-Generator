@@ -112,6 +112,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         OutputCommandLine.setEditable(false);
+        OutputCommandLine.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jSplitPane1.setDividerLocation(320);
         jSplitPane1.setOneTouchExpandable(true);
@@ -833,6 +834,10 @@ public class GUI extends javax.swing.JFrame {
             }
         }
         
+        else{ // If empty
+            P1Label8.setBackground(new java.awt.Color(255, 255, 222));//Change color to Yellow
+        }
+        
         /*Check if the Tenth TextField is a Number*/
         if(!P2TF10.getText().isEmpty()){
             try{  
@@ -843,6 +848,10 @@ public class GUI extends javax.swing.JFrame {
             catch(NumberFormatException nfe){  
                 P1Label10.setBackground(new java.awt.Color(255, 0, 0));//Change color to Red
             }
+        }
+        
+        else{ // If empty
+            P1Label10.setBackground(new java.awt.Color(255, 255, 222));//Change color to Yellow
         }
     }
     
