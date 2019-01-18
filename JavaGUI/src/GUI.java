@@ -641,14 +641,14 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
         File.setBackground(new java.awt.Color(226, 240, 217));
-        File.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_system-file-manager_118825.png")); // NOI18N
+        File.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_system-file-manager.png"))); // NOI18N
         File.setText("File");
         File.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         File.setOpaque(true);
 
         Open.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         Open.setBackground(new java.awt.Color(226, 240, 217));
-        Open.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Open_1493293.png")); // NOI18N
+        Open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_Open.png"))); // NOI18N
         Open.setText("Open (Ctrl-O)");
         Open.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Open.setOpaque(true);
@@ -661,7 +661,7 @@ public class GUI extends javax.swing.JFrame {
 
         Save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         Save.setBackground(new java.awt.Color(226, 240, 217));
-        Save.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_floppy_disk_save_103863.png")); // NOI18N
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_floppy_disk_save.png"))); // NOI18N
         Save.setText("Save (Ctrl-S)");
         Save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Save.setOpaque(true);
@@ -673,7 +673,7 @@ public class GUI extends javax.swing.JFrame {
         File.add(Save);
 
         SaveAs.setBackground(new java.awt.Color(226, 240, 217));
-        SaveAs.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_Download_1031520.png")); // NOI18N
+        SaveAs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder.png"))); // NOI18N
         SaveAs.setText("SaveAs");
         SaveAs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SaveAs.setOpaque(true);
@@ -685,7 +685,7 @@ public class GUI extends javax.swing.JFrame {
         File.add(SaveAs);
 
         ClearHistory.setBackground(new java.awt.Color(226, 240, 217));
-        ClearHistory.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_circle-backup-time-history-recent-time-machine-outline-stroke_763474.png")); // NOI18N
+        ClearHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_circle-backup-time-history.png"))); // NOI18N
         ClearHistory.setText("Clear History");
         ClearHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ClearHistory.setOpaque(true);
@@ -699,14 +699,14 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(File);
 
         ClearOptions.setBackground(new java.awt.Color(226, 240, 217));
-        ClearOptions.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_edit-clear_118917.png")); // NOI18N
+        ClearOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_edit-clear.png"))); // NOI18N
         ClearOptions.setText("Clear Options");
         ClearOptions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ClearOptions.setFocusPainted(true);
         ClearOptions.setOpaque(true);
 
         ClearLaunches.setBackground(new java.awt.Color(226, 240, 217));
-        ClearLaunches.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\iconfinder_draw-08_725558.png")); // NOI18N
+        ClearLaunches.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconfinder_draw.png"))); // NOI18N
         ClearLaunches.setText("Clear Launches");
         ClearLaunches.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ClearLaunches.setOpaque(true);
@@ -721,9 +721,8 @@ public class GUI extends javax.swing.JFrame {
 
         ImageMenu.setBackground(new java.awt.Color(226, 240, 217));
         ImageMenu.setBorder(null);
-        ImageMenu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Andres Ricardo\\Desktop\\Coursework3\\Images\\UTLM_solver_banner.jpg")); // NOI18N
+        ImageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UTLM_solver_banner.jpg"))); // NOI18N
         ImageMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ImageMenu.setDisabledSelectedIcon(null);
         ImageMenu.setFocusable(false);
         ImageMenu.setIconTextGap(0);
         ImageMenu.setOpaque(true);
