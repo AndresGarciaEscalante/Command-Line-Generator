@@ -1,7 +1,7 @@
 # Command Line Generator
 ## Using Java and Netbeans
 
-![](Img/commandLineGenerator.png)
+![](Img/commandLineGenerator.PNG)
 
 ## Setting up the enviroment:
 For this project used the following programs:
@@ -16,7 +16,7 @@ For this project used the following programs:
 ## Project Description
 The Command Line Generator was created using Netbeans as shown in the following image:
 
-![](Img/Project_Using_Netbeans.png)
+![](Img/Project_Using_Netbeans.PNG)
 
 For more detailed information please refer to the **Documentation folder** located in this repository. 
 
