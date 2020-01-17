@@ -4,17 +4,17 @@
 ![](Img/commandLineGenerator.PNG)
 
 ## Setting up the enviroment:
-For this project used the following programs:
+For this project the following set up was used:
 - Windows 10
 - Netbeans64
 
 ## Installation steps:
-- Enter to netbeans and open the project to modify the Command Line Generator GUI.
+- Enter to ```Netbeans``` and open the project to modify the Command Line Generator GUI.
 
-- Double click on the .jar executable to initialize the GUI.
+- Double click on the ```.jar``` executable to initialize the GUI.
 
 ## Project Description
-The Command Line Generator was created using Netbeans as shown in the following image:
+The Command Line Generator was created using ```Netbeans``` as shown in the following image:
 
 ![](Img/Project_Using_Netbeans.PNG)
 
